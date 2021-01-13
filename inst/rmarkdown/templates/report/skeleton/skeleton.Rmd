@@ -1,0 +1,56 @@
+---
+title: "Reporte"
+date: 12/Enero/2021
+author:
+- familyname: Marx
+  othernames: Karl
+  qualifications: Filosofo, Economista, 5o semestre
+  correspondingauthor: true
+- familyname: Engels
+  othernames: Friedrich 
+  qualifications: Filosofo, Economista, Historiador
+department: Facultad de Economía
+type: Ensayo
+organization: Economía Política
+bibliography: references.bib
+biblio-style: authoryear-comp
+linestretch: 1.5
+lang: "es-mx"
+output:
+  UabjoFEconomiaTemplates::report:
+    fig_caption: yes
+    fig_height: 5
+    fig_width: 8
+    includes:
+      in_header: preamble.tex
+    keep_tex: yes
+    number_sections: yes
+    citation_package: biblatex
+    toc: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, cache=TRUE, messages=FALSE, warning=FALSE)
+# Make sure you have the latest versions of rmarkdown and bookdown installed
+library(ggplot2)
+```
+
+
+# Introducción
+En el famoso paper, @BC64 se introdujo una familia de transformaciones \dots
+
+```{r histogram, fig.cap="Nice histogram", message=FALSE, warning=FALSE}
+qplot(exp(rnorm(200)))
+```
+
+Considere los datos logNormal graficados en la figura \ref{fig:histogram}.
+
+$$s^2 = \sum_{i=1}^n (x_i-\bar{x})^2$$
+
+# Desarrollo
+
+`r paste(stringi::stri_rand_lipsum(2, start_lipsum = FALSE), collapse = "\n\n")`
+
+# Conclusión
+
+`r paste(stringi::stri_rand_lipsum(3, start_lipsum = FALSE), collapse = "\n\n")`

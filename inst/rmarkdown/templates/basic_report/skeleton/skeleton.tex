@@ -1,0 +1,118 @@
+\documentclass[spanish,]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage{hyperref}
+\hypersetup{unicode=true,
+            pdftitle={A short report},
+            pdfauthor={Alonso Melgar López},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[shorthands=off,main=spanish]{babel}
+\else
+  \usepackage{polyglossia}
+  \setmainlanguage[]{spanish}
+\fi
+\usepackage{longtable,booktabs}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+
+  \title{A short report}
+    \author{Alonso Melgar López}
+      \date{06 enero 2021}
+
+
+% change section title styling
+\usepackage{sectsty}
+\sectionfont{\normalsize\normalfont\itshape}
+\subsectionfont{\normalsize\normalfont}
+
+% use fancyhdr style
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead[LO, LE]{Alonso Melgar López}
+\fancyhead[RO, RE]{5o Semestre}
+\makeatletter
+\renewcommand{\maketitle}{\bgroup\vspace*{-1cm}\setlength{\parindent}{0pt}
+\begin{flushleft}
+  \textbf{\@title}
+
+    \emph{Economía Política}
+  
+  \@date
+
+\end{flushleft}\egroup
+}
+\makeatother
+
+\begin{document}
+\maketitle
+
+\hypertarget{introducciuxf3n}{%
+\section{Introducción}\label{introducciuxf3n}}
+
+Lorem ipsum dolor sit amet, augue pellentesque at ultrices mi sed. Augue sagittis risus id enim at. Sed mi sed, aliquet ac commodo elit. Commodo est, fermentum lacus justo eu felis mollis! Taciti magnis dignissim at, facilisi fermentum amet, lacus faucibus dui. Sed dignissim erat sagittis, in! Ridiculus felis sed lorem. Morbi pharetra metus taciti tellus. Suscipit sed, faucibus sed senectus, viverra. In sapien praesent purus placerat netus ex, tempor mollis. Vel vel dui praesent tempor amet quis sodales placerat nulla. Vestibulum massa hendrerit ut, sed mi facilisi sed dignissim. Lectus praesent aliquam, quis, sed aliquam. Sagittis aliquam sociis metus himenaeos orci. Molestie mauris ut cras risus phasellus varius eu velit. Augue feugiat accumsan senectus. Pharetra nibh sed finibus porttitor sed sem purus.
+
+Accumsan praesent morbi. Mollis etiam magna eu, et venenatis at arcu ac malesuada. Bibendum diam donec donec ut accumsan potenti facilisis in volutpat mauris. Feugiat sed amet ultrices imperdiet elit, in nulla vehicula. Praesent neque non in placerat penatibus sollicitudin, dapibus. Cras tincidunt cras, id, risus non sed, sed dui mi. Urna felis urna tempor conubia, primis, ornare non sit in. Sed, condimentum felis blandit sed fringilla, nunc. Risus mauris, tortor libero. Imperdiet varius felis dapibus dapibus ligula nulla luctus justo torquent placerat tortor.
+
+\hypertarget{desarrollo}{%
+\section{Desarrollo}\label{desarrollo}}
+
+Velit sed molestie ex libero eu platea pretium a facilisis dictumst. Non nec mus pretium sem tellus, risus dapibus eu. Sed ut pellentesque justo tincidunt. Sollicitudin leo nostra lacinia ac amet hac felis sed bibendum. Quisque dapibus justo tempor posuere placerat in. Nibh egestas lobortis metus ad, leo. Ridiculus amet sapien sit sed, porttitor ultricies. Blandit ut adipiscing fusce sed dui venenatis, efficitur vestibulum. Condimentum sit est sodales volutpat, lobortis. Nisl orci efficitur erat litora sed ut neque.
+
+Sed vel et, tincidunt. Dolor purus nibh natoque, non massa at. Vitae et maximus turpis eu maximus tristique cum in. Senectus fermentum, blandit fames sed, id in nunc viverra. Quam odio metus nullam curabitur nibh donec nunc metus. Hendrerit metus turpis id hac malesuada laoreet donec. Porta ipsum erat, est habitant ligula tristique, parturient tellus. Quis lacus, nisi mauris primis, dui. Mus, augue urna faucibus magna condimentum leo.
+
+\hypertarget{conclusiuxf3n}{%
+\section{Conclusión}\label{conclusiuxf3n}}
+
+Quisque tempor, tincidunt, integer erat in ultricies at. Velit luctus sit pharetra porttitor amet nulla. Morbi amet sit vitae augue parturient vivamus. Nec, habitasse non, mus dictumst et litora risus sed. Et vitae id sed porttitor dis. Fermentum nascetur eros donec ac mi, cum nibh. Curae leo in, ligula leo ac dapibus pulvinar ornare et metus sed. Nec id sit maecenas viverra curae feugiat tincidunt maecenas magna. Congue aliquet in sed cursus justo.
+
+Maximus risus metus sit nunc praesent donec, enim, eget in metus velit. Porttitor lectus a phasellus, commodo in mauris lorem in augue nulla ut sit. In, nisl nibh ut ut euismod facilisi rutrum nunc, iaculis. Sed varius aptent ac. Lacinia bibendum, maximus non dapibus cum quis. Sed nulla aenean amet velit mus elementum vulputate. Massa sociosqu. Donec diam nisi phasellus odio, vivamus, in, urna. Finibus non ornare et in, vestibulum hac est. Viverra lobortis posuere vestibulum sit nec purus ac porttitor ligula. Sed rutrum eros in tellus elementum id morbi, elit. Purus non tempor augue libero. In sed, himenaeos arcu turpis egestas eu ligula porttitor. Vulputate magna quis sodales tortor sed imperdiet vitae accumsan pellentesque tristique.
+
+Condimentum nunc mauris leo sed sed. Lacinia convallis inceptos at aptent ut sed tortor. Et eleifend tempus dignissim, magna ante tortor tincidunt urna. Vehicula eget pulvinar. Iaculis netus, blandit vitae, curabitur phasellus nulla libero, potenti. Pharetra netus eu praesent vel. Maximus et neque ac in per et lorem duis. Ipsum eros velit. A ultricies convallis ultrices quam sagittis, facilisi ipsum. Pharetra velit netus vel imperdiet suscipit quis cum quam facilisi at molestie amet a. Sed aliquet amet, dapibus sit quam sed leo massa ut rutrum. Sed cubilia sed fusce porttitor aliquam imperdiet penatibus donec. Porta nec enim sociosqu eu aliquet urna, ac scelerisque.
+
+
+\end{document}

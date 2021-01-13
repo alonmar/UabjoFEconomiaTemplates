@@ -1,0 +1,26 @@
+---
+title: "A short report"
+my_subtitle: "Economía Política"
+author: "Alonso Melgar López"
+date: "`r format(Sys.time(), '%d %B %Y')`"
+rheader: "5o Semestre"
+lang: "es-mx"
+fancy: yes
+toc: false
+output: 
+  UabjoFEconomiaTemplates::basicreport:
+    keep_tex: yes
+---
+
+   
+# Introducción
+
+`r paste(stringi::stri_rand_lipsum(2), collapse = "\n\n")`
+
+# Desarrollo
+
+`r paste(stringi::stri_rand_lipsum(2, start_lipsum = FALSE), collapse = "\n\n")`
+
+# Conclusión
+
+`r paste(stringi::stri_rand_lipsum(3, start_lipsum = FALSE), collapse = "\n\n")`
