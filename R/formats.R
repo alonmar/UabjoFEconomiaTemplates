@@ -27,3 +27,12 @@ report <- function(...) {
                           template = template
   )
 }
+
+#' @export
+tesis <- function(...) {
+  template <- system.file("rmarkdown/templates/tesis/resources/uabjotesis.tex",
+                          package="UabjoFEconomiaTemplates")
+  bookdown::pdf_document2(...,
+                          template = template
+  )
+}
