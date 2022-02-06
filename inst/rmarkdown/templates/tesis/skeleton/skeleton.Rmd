@@ -1,6 +1,6 @@
 ---
 title: "Tesis"
-date: 12/Enero/2021
+date: "`r format(Sys.time(), '%d %B %Y')`"
 author:
 - familyname: Marx
   othernames: Karl
