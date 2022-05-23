@@ -1,9 +1,5 @@
-\documentclass[$if(fontsize)$$fontsize$$else$11pt$endif$,$if(lang)$$babel-lang$,$endif$a4paper,$for(classoption)$$classoption$$sep$,$endfor$]{$documentclass$}
-$if(fontfamily)$
-\usepackage[$for(fontfamilyoptions)$$fontfamilyoptions$$sep$,$endfor$]{$fontfamily$}
-$else$
+\documentclass[12pt,spanish,a4paper,]{article}
 \usepackage{lmodern}
-$endif$
 
 \usepackage{tocbasic} %% add new toc
 \usepackage{floatrow}
@@ -12,136 +8,38 @@ $endif$
 \usepackage{ifxetex,ifluatex}
 \usepackage{fixltx2e} % provides \textsubscript
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
-  \usepackage[$if(fontenc)$$fontenc$$else$T1$endif$]{fontenc}
+  \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
-$if(euro)$
-  \usepackage{eurosym}
-$endif$
 \else % if luatex or xelatex
-$if(mathspec)$
-  \ifxetex
-    \usepackage{mathspec}
-  \else
-    \usepackage{unicode-math}
-  \fi
-$else$
   \usepackage{unicode-math}
-$endif$
   \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
-$for(fontfamilies)$
-  \newfontfamily{$fontfamilies.name$}[$fontfamilies.options$]{$fontfamilies.font$}
-$endfor$
-$if(euro)$
-  \newcommand{\euro}{€}
-$endif$
-$if(mainfont)$
-    \setmainfont[$for(mainfontoptions)$$mainfontoptions$$sep$,$endfor$]{$mainfont$}
-$endif$
-$if(sansfont)$
-    \setsansfont[$for(sansfontoptions)$$sansfontoptions$$sep$,$endfor$]{$sansfont$}
-$endif$
-$if(monofont)$
-    \setmonofont[Mapping=tex-ansi$if(monofontoptions)$,$for(monofontoptions)$$monofontoptions$$sep$,$endfor$$endif$]{$monofont$}
-$endif$
-$if(mathfont)$
-$if(mathspec)$
-  \ifxetex
-    \setmathfont(Digits,Latin,Greek)[$for(mathfontoptions)$$mathfontoptions$$sep$,$endfor$]{$mathfont$}
-  \else
-    \setmathfont[$for(mathfontoptions)$$mathfontoptions$$sep$,$endfor$]{$mathfont$}
-  \fi
-$else$
-  \setmathfont[$for(mathfontoptions)$$mathfontoptions$$sep$,$endfor$]{$mathfont$}
-$endif$
-$endif$
-$if(CJKmainfont)$
-    \usepackage{xeCJK}
-    \setCJKmainfont[$for(CJKoptions)$$CJKoptions$$sep$,$endfor$]{$CJKmainfont$}
-$endif$
 \fi
 % use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
 % use microtype if available
 \IfFileExists{microtype.sty}{%
-\usepackage[$for(microtypeoptions)$$microtypeoptions$$sep$,$endfor$]{microtype}
+\usepackage[]{microtype}
 \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
 }{}
 \PassOptionsToPackage{hyphens}{url} % url is loaded by hyperref
-$if(verbatim-in-note)$
-\usepackage{fancyvrb}
-$endif$
 \usepackage[unicode=true]{hyperref}
-$if(colorlinks)$
-\PassOptionsToPackage{usenames,dvipsnames}{color} % color is loaded by hyperref
-$endif$
 \hypersetup{
-$if(title-meta)$
-            pdftitle={$title-meta$},
-$endif$
-$if(author-meta)$
-            pdfauthor={$author-meta$},
-$endif$
-$if(keywords)$
-            pdfkeywords={$for(keywords)$$keywords$$sep$, $endfor$},
-$endif$
-$if(colorlinks)$
-            colorlinks=true,
-            linkcolor=$if(linkcolor)$$linkcolor$$else$Maroon$endif$,
-            citecolor=$if(citecolor)$$citecolor$$else$Blue$endif$,
-            urlcolor=$if(urlcolor)$$urlcolor$$else$Blue$endif$,
-$else$
+            pdftitle={Tesis},
             pdfborder={0 0 0},
-$endif$
             breaklinks=true}
 \urlstyle{same}  % don't use monospace font for urls
-$if(verbatim-in-note)$
-\VerbatimFootnotes % allows verbatim text in footnotes
-$endif$
-$if(geometry)$
-\usepackage[$for(geometry)$$geometry$$sep$,$endfor$]{geometry}
-$else$
-\usepackage{geometry}
-\geometry{a4paper, centering, text={16cm,24cm}}
-$endif$
-$if(lang)$
+\usepackage[left=3.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm]{geometry}
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
-  \usepackage[shorthands=off,$for(babel-otherlangs)$$babel-otherlangs$,$endfor$main=$babel-lang$]{babel}
-$if(babel-newcommands)$
-  $babel-newcommands$
-$endif$
+  \usepackage[shorthands=off,main=spanish]{babel}
 \else
   \usepackage{polyglossia}
-  \setmainlanguage[$polyglossia-lang.options$]{$polyglossia-lang.name$}
-$for(polyglossia-otherlangs)$
-  \setotherlanguage[$polyglossia-otherlangs.options$]{$polyglossia-otherlangs.name$}
-$endfor$
+  \setmainlanguage[]{spanish}
 \fi
-$endif$
-$if(natbib)$
-\usepackage{natbib}
-\bibliographystyle{$if(biblio-style)$$biblio-style$$else$plainnat$endif$}
-$endif$
-$if(biblatex)$
-\usepackage[$if(biblio-style)$style=$biblio-style$,$endif$$for(biblatexoptions)$$biblatexoptions$$sep$,$endfor$]{biblatex}
-$for(bibliography)$
-\addbibresource{$bibliography$}
-$endfor$
-$endif$
-$if(listings)$
-\usepackage{listings}
-$endif$
-$if(lhs)$
-\lstnewenvironment{code}{\lstset{language=Haskell,basicstyle=\small\ttfamily}}{}
-$endif$
-$if(highlighting-macros)$
-$highlighting-macros$
-$endif$
-$if(tables)$
+\usepackage[style=authoryear-comp,]{biblatex}
+\addbibresource{references.bib}
 \usepackage{longtable,booktabs}
 % Fix footnotes in tables (requires footnote package)
 \IfFileExists{footnote.sty}{\usepackage{footnote}\makesavenoteenv{long table}}{}
-$endif$
-$if(graphics)$
 \usepackage{graphicx,grffile}
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
@@ -151,50 +49,16 @@ $if(graphics)$
 % margins by default, and it is still possible to overwrite the defaults
 % using explicit options in \includegraphics[width, height, ...]{}
 \setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
-$endif$
-$if(links-as-notes)$
-% Make links footnotes instead of hotlinks:
-\renewcommand{\href}[2]{#2\footnote{\url{#1}}}
-$endif$
-$if(strikeout)$
-\usepackage[normalem]{ulem}
-% avoid problems with \sout in headers with hyperref:
-\pdfstringdefDisableCommands{\renewcommand{\sout}{}}
-$endif$
-$if(indent)$
-$else$
 \IfFileExists{parskip.sty}{%
 \usepackage{parskip}
 }{% else
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{6pt plus 2pt minus 1pt}
 }
-$endif$
 \setlength{\emergencystretch}{3em}  % prevent overfull lines
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-$if(numbersections)$
-\setcounter{secnumdepth}{$if(secnumdepth)$$secnumdepth$$else$5$endif$}
-$else$
-\setcounter{secnumdepth}{0}
-$endif$
-$if(dir)$
-\ifxetex
-  % load bidi as late as possible as it modifies e.g. graphicx
-  $if(latex-dir-rtl)$
-  \usepackage[RTLdocument]{bidi}
-  $else$
-  \usepackage{bidi}
-  $endif$
-\fi
-\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
-  \TeXXeTstate=1
-  \newcommand{\RL}[1]{\beginR #1\endR}
-  \newcommand{\LR}[1]{\beginL #1\endL}
-  \newenvironment{RTL}{\beginR}{\endR}
-  \newenvironment{LTR}{\beginL}{\endL}
-\fi
-$endif$
+\setcounter{secnumdepth}{5}
 
 % set default figure placement to htbp
 \makeatletter
@@ -202,17 +66,7 @@ $endif$
 \makeatother
 
 
-$if(title)$
-\title{$title$}
-$endif$
-$if(subtitle)$
-\providecommand{\subtitle}[1]{}
-\subtitle{$subtitle$}
-$endif$
-$if(institute)$
-\providecommand{\institute}[1]{}
-\institute{$for(institute)$$institute$$sep$ \and $endfor$}
-$endif$
+\title{Tesis}
 
 %% MONASH STUFF
 
@@ -355,15 +209,11 @@ $endif$
 \DeclareDelimFormat[cbx@textcite]{nameyeardelim}{\addspace}
 \makeatother
 
-\author{$for(author)$\sf\Large\textbf{$author.title$ $author.othernames$ $author.familyname$}\\ {\sf\large $author.qualifications$\\[0.5cm]}$sep$ $endfor$}
+\author{\sf\Large\textbf{ Karl Marx}\\ {\sf\large Filosofo, Economista, 5o semestre\\[0.5cm]} \sf\Large\textbf{ Friedrich Engels}\\ {\sf\large Filosofo, Economista, Historiador\\[0.5cm]}}
 
-$if(date)$
-\date{$date$}
-$else$
-\date{\sf\Date~\Month~\Year}
-$endif$
+\date{23 mayo 2022}
 \makeatletter
-\lfoot{\sf $for(author)$$author.familyname$$sep$, $endfor$}
+\lfoot{\sf Marx, Engels}
 \makeatother
 
 
@@ -374,29 +224,13 @@ $endif$
 \def\telephone#1{\gdef\@telephone{#1}}
 \def\email#1{\gdef\@email{#1}}
 \makeatother
-$if(organization)$
-  \organization{$organization$}
-$else$
-  \organization{}
-$endif$
+  \organization{Economía Política}
 
-$if(department)$
-  \def\name{$department$}
-$else$
-  \def\name{Department of \hbox{Econometrics \&} \hbox{Business Statistics}}
-$endif$
+  \def\name{Facultad de Economía}
 
-$if(phone)$
-  \telephone{$phone$}
-$else$
   \telephone{(951) 50 3 16 86}
-$endif$
 
-$if(email)$
-  \email{$email$}
-$else$
   \email{direccion@economiauabjo.com.mx}
-$endif$
 
 \def\webaddress{\url{http://buseco.monash.edu/ebs/consulting/}}
 \def\logo{\includegraphics[width=6cm]{logo}}
@@ -407,11 +241,7 @@ $endif$
 \makeatother
 
 %%%% FRONT PAGE OF REPORTS
-$if(type)$
-  \def\reporttype{$type$}
-$else$
-  \def\reporttype{-}
-$endif$
+  \def\reporttype{Ensayo}
 
 \long\def\front#1#2#3{
 \newpage
@@ -431,14 +261,10 @@ $endif$
 \def\titlepage{\front{\expandafter{\@title}}{\@author}{\@organization}}
 \makeatother
 
-$if(linestretch)$
 \usepackage{setspace}
-\setstretch{$linestretch$}
-$endif$
+\setstretch{1.5}
 
-$for(header-includes)$
-$header-includes$
-$endfor$
+%% Any special functions or other packages can be loaded here.
 
 \usepackage{pdfpages}
 
@@ -461,61 +287,92 @@ $endfor$
 
 \pagenumbering{gobble}
 
-%%$if(title)$
-%%\titlepage
-%%$endif$
-
+%%%%\titlepage
+%%
 \includepdf{front.pdf}
 
 \pagenumbering{Roman}
 
-$for(include-before)$
-$include-before$
-
-$endfor$
-$if(toc)$
 {
-$if(colorlinks)$
-\hypersetup{linkcolor=$if(toccolor)$$toccolor$$else$black$endif$}
-$endif$
-\setcounter{tocdepth}{$toc-depth$}
+\setcounter{tocdepth}{2}
 \tableofcontents
 }
-$endif$
-$if(lot)$
 \listoftablas
-$endif$
-$if(lof)$
 \listoffigures
-$endif$
-$if(lom)$
 \listofmapas
-$endif$
 \newpage
 \pagenumbering{arabic}
 \setcounter{page}{1}
-$body$
+\hypertarget{introducciuxf3n}{%
+\section{Introducción}\label{introducciuxf3n}}
+
+En el famoso paper, \textcite{BC64} se introdujo una familia de transformaciones \dots
+
+\begin{figure}
+\centering
+\includegraphics{skeleton_files/figure-latex/histogram-1.pdf}
+\caption{\label{fig:histogram}Histograma}
+\end{figure}
+
+Considere los datos logNormal graficados en la figura \ref{fig:histogram}.
+
+\[s^2 = \sum_{i=1}^n (x_i-\bar{x})^2\]
+
+\hypertarget{subtema}{%
+\subsection{Subtema}\label{subtema}}
+
+Una gráfica que permite comparar una variable categórica y una numérica
+
+\begin{figure}
+\centering
+\includegraphics{skeleton_files/figure-latex/boxplot-1.pdf}
+\caption{\label{fig:boxplot}Boxplot}
+\end{figure}
+
+En la figura \ref{fig:boxplot} es fácil observar los valores atípicos.
+
+\hypertarget{desarrollo}{%
+\section{Desarrollo}\label{desarrollo}}
+
+Donec gravida vitae. Sed eros erat congue magna faucibus eu turpis tincidunt in. Varius litora vivamus, sit tempus pharetra non pretium turpis lacus. Praesent massa ornare a purus sed et. Nam justo suscipit egestas, fames quis ornare in. Metus luctus, viverra a leo porta ut purus. Et sed eget velit vitae fermentum varius, id fermentum. Nostra et enim efficitur vehicula, sit cum ultricies et.
+
+Eu pellentesque rutrum, ligula, ultricies, eu sed interdum elementum. Platea, efficitur tortor arcu risus dis. Luctus himenaeos dolor erat praesent et. Sed sit venenatis augue ut iaculis cum, aptent rutrum odio lorem elit nisl dui. Amet a a lacinia nam eu et, sed vel aliquam inceptos. Dictum dui turpis pellentesque vel dolor dapibus tristique amet lacus sodales id nunc iaculis facilisi lacus. Sit ipsum nam eget. Nec, sed nec mauris faucibus faucibus finibus ac ut ullamcorper accumsan ligula? Finibus finibus, porttitor pellentesque fames quis non pharetra justo molestie. Lorem urna a sed lacinia. Pharetra, sit himenaeos in sagittis urna montes consectetur augue taciti eu.
+
+\begin{mapa}
+  \caption{Un mapa de diabetes.}
+  \includegraphics{images/estatal_diabetes.png}
+  \footnotesize{Fuente: Elaboración propia con datos de la ENSANUT}
+\end{mapa}
+
+\begin{tabla}
+  \caption{Una tabla} 
+  \centering 
+  \begin{tabular}{c c c c} 
+  \hline\hline 
+  Case & Method\#1 & Method\#2 & Method\#3 \\ 
+  \hline 
+  1 & 50 & 837 & 970 \\
+  2 & 47 & 877 & 230 \\
+  3 & 31 & 25 & 415 \\
+  4 & 35 & 144 & 2356 \\
+  5 & 45 & 300 & 556 \\ 
+  \hline 
+  \footnotesize{Fuente: Elaboración propia con datos de la ENSANUT}
+  \end{tabular}
+\end{tabla}
 
 \newpage
-$if(natbib)$
-$if(bibliography)$
-$if(biblio-title)$
-$if(book-class)$
-\renewcommand\bibname{$biblio-title$}
-$else$
-\renewcommand\refname{$biblio-title$}
-$endif$
-$endif$
-\bibliography{$for(bibliography)$$bibliography$$sep$,$endfor$}
 
-$endif$
-$endif$
-$if(biblatex)$
-\printbibliography$if(biblio-title)$[title=$biblio-title$]$endif$
+\hypertarget{conclusiuxf3n}{%
+\section{Conclusión}\label{conclusiuxf3n}}
 
-$endif$
-$for(include-after)$
-$include-after$
+Arcu sem condimentum taciti in ornare nascetur. Pulvinar curae vestibulum eleifend non gravida. Congue taciti non id. Sed donec in nam vitae ante ut tempor nec ante. Non curabitur sit, pellentesque laoreet ad ipsum sed, a sed, sollicitudin mattis ligula. Iaculis mauris massa. Sem proin feugiat hendrerit maximus feugiat diam eleifend facilisis, volutpat ligula tristique. Aliquam non tristique sed egestas ut ut. Semper amet ligula in metus integer. Donec fringilla turpis, et. Lacus lectus amet suscipit, et, ullamcorper aliquam.
 
-$endfor$
+Ornare nec vestibulum lectus. Orci urna in cras est mauris. In risus diam ac nullam sapien, eros, et enim commodo enim. Blandit eget nec tincidunt magna donec ad. Feugiat suspendisse sed malesuada velit. Pellentesque risus eros primis convallis sapien eget ridiculus etiam ante primis. Tristique turpis aptent id nec vulputate sodales, et et.
+
+Himenaeos vivamus, imperdiet sodales in ante viverra, fermentum quis rhoncus dolor! Sit commodo ac justo volutpat velit. Mattis quisque conubia dolor convallis eros sed ex turpis eros nisi. At nostra orci non nulla condimentum malesuada himenaeos. Dictumst erat sollicitudin vehicula dolor sit et accumsan, ipsum quis sed. Tellus ultricies nisi vitae ut phasellus varius. Curabitur pretium, ac ipsum facilisis et donec, orci. Faucibus, felis sit amet est magna maximus aliquam blandit nisl tristique in porttitor magna sodales, nibh. Habitant, ultrices commodo. Egestas feugiat amet hendrerit quis malesuada ornare sed.
+
+\newpage
+\printbibliography
+
 \end{document}

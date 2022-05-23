@@ -85,6 +85,23 @@ En la figura \ref{fig:boxplot} es fácil observar los valores atípicos.
 \end{mapa}
 
 
+\begin{tabla}
+  \caption{Una tabla} 
+  \centering 
+  \begin{tabular}{c c c c} 
+  \hline\hline 
+  Case & Method\#1 & Method\#2 & Method\#3 \\ 
+  \hline 
+  1 & 50 & 837 & 970 \\
+  2 & 47 & 877 & 230 \\
+  3 & 31 & 25 & 415 \\
+  4 & 35 & 144 & 2356 \\
+  5 & 45 & 300 & 556 \\ 
+  \hline 
+  \footnotesize{Fuente: Elaboración propia con datos de la ENSANUT}
+  \end{tabular}
+\end{tabla}
+
 \newpage
 
 # Conclusión
