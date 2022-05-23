@@ -4,7 +4,7 @@ $if(fontfamily)$
 $else$
 \usepackage{lmodern}
 $endif$
-
+\usepackage{tocbasic} %% add new toc
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
 \usepackage{fixltx2e} % provides \textsubscript
@@ -439,13 +439,19 @@ $endfor$
 \usepackage{pdfpages}
 
 \begin{document}
+\DeclareNewTOC[%% Added map class
+  type=mapa,
+  float,
+  name=Mapa,
+  listname={Índice de mapas},
+  ]{mapa}
 \pagenumbering{gobble}
 
 %%$if(title)$
 %%\titlepage
 %%$endif$
 
-\includepdf[page=1]{front.pdf}
+\includepdf{front.pdf}
 
 \pagenumbering{Roman}
 
@@ -467,6 +473,9 @@ $if(lot)$
 $endif$
 $if(lof)$
 \listoffigures
+$endif$
+$if(lom)$
+\listofmapas
 $endif$
 \newpage
 \pagenumbering{arabic}
