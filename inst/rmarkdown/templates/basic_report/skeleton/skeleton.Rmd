@@ -6,7 +6,9 @@ date: "`r format(Sys.time(), '%d %B %Y')`"
 rheader: "5o Semestre"
 lang: "es-mx"
 fancy: yes
-toc: false
+toc: false # Mostrar indice
+fontsize: 12pt #options 10pt, 11pt, 12pt
+linestretch: 1.5
 output: 
   UabjoFEconomiaTemplates::basicreport:
     keep_tex: yes

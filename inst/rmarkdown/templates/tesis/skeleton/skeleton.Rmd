@@ -1,6 +1,6 @@
 ---
 title: "Tesis"
-date: 12/Enero/2021
+date: "`r format(Sys.time(), '%d %B %Y')`"
 author:
 - familyname: Marx
   othernames: Karl
@@ -15,7 +15,7 @@ organization: Economía Política
 bibliography: references.bib
 biblio-style: authoryear-comp
 linestretch: 1.5
-fontsize: 12pt
+fontsize: 12pt #options 10pt, 11pt, 12pt
 geometry: "left=3.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm"
 lang: "es-mx"
 output:
@@ -28,12 +28,16 @@ output:
     keep_tex: yes
     number_sections: yes
     citation_package: biblatex
-    toc: true
+toc: true # Mostrar índice
+lot: true # Mostrar índice de tablas
+lof: true # Mostrar índice de figuras
+lom: true # Mostrar índice de mapas
 ---
 
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE, cache=TRUE, messages=FALSE, warning=FALSE)
+knitr::opts_chunk$set(echo = FALSE, cache=TRUE, messages=FALSE, warning=FALSE 
+                      )
 # Make sure you have the latest versions of rmarkdown and bookdown installed
 library(ggplot2)
 ```
@@ -42,17 +46,46 @@ library(ggplot2)
 # Introducción
 En el famoso paper, @BC64 se introdujo una familia de transformaciones \dots
 
-```{r histogram, fig.cap="Nice histogram", message=FALSE, warning=FALSE}
-qplot(exp(rnorm(200)))
+```{r histogram, fig.cap="Histograma", message=FALSE, warning=FALSE}
+ggplot() +
+  geom_histogram(aes(x=exp(rnorm(200)))) +
+  labs(caption = "Fuente: Elaboración propia")
 ```
 
 Considere los datos logNormal graficados en la figura \ref{fig:histogram}.
 
 $$s^2 = \sum_{i=1}^n (x_i-\bar{x})^2$$
 
+## Subtema
+
+Una gráfica que permite comparar una variable categórica y una numérica
+
+
+
+
+```{r boxplot, fig.cap="Boxplot", message=FALSE, warning=FALSE}
+ggplot(diamonds) +
+  geom_boxplot(aes(x=color, y=price, fill=color)) +
+  labs(caption = "Fuente: Elaboración propia")
+```
+
+En la figura \ref{fig:boxplot} es fácil observar los valores atípicos.
+
 # Desarrollo
 
 `r paste(stringi::stri_rand_lipsum(2, start_lipsum = FALSE), collapse = "\n\n")`
+
+
+
+
+\begin{mapa}
+  \caption{Un mapa de diabetes.}
+  \includegraphics{images/estatal_diabetes.png}
+  \footnotesize{Fuente: Elaboración propia con datos de la ENSANUT}
+\end{mapa}
+
+
+\newpage
 
 # Conclusión
 
